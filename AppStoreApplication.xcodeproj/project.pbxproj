@@ -14,6 +14,8 @@
 		AE2C11FD2BE5532C00B414D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE2C11FC2BE5532C00B414D3 /* Assets.xcassets */; };
 		AE2C12002BE5532C00B414D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE2C11FE2BE5532C00B414D3 /* LaunchScreen.storyboard */; };
 		AE2C12082BE553F700B414D3 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C12072BE553F700B414D3 /* BaseTabBarController.swift */; };
+		AE2C120B2BE719CC00B414D3 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C120A2BE719CC00B414D3 /* AppsSearchController.swift */; };
+		AE2C120E2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C120D2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AE2C11FF2BE5532C00B414D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE2C12012BE5532C00B414D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE2C12072BE553F700B414D3 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		AE2C120A2BE719CC00B414D3 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
+		AE2C120D2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		AE2C11F22BE5532800B414D3 /* AppStoreApplication */ = {
 			isa = PBXGroup;
 			children = (
+				AE2C120C2BE71CF600B414D3 /* Views */,
+				AE2C12092BE719AC00B414D3 /* Controllers */,
 				AE2C11F32BE5532800B414D3 /* AppDelegate.swift */,
 				AE2C11F52BE5532800B414D3 /* SceneDelegate.swift */,
 				AE2C11F72BE5532800B414D3 /* ViewController.swift */,
@@ -65,9 +71,25 @@
 				AE2C11FC2BE5532C00B414D3 /* Assets.xcassets */,
 				AE2C11FE2BE5532C00B414D3 /* LaunchScreen.storyboard */,
 				AE2C12012BE5532C00B414D3 /* Info.plist */,
-				AE2C12072BE553F700B414D3 /* BaseTabBarController.swift */,
 			);
 			path = AppStoreApplication;
+			sourceTree = "<group>";
+		};
+		AE2C12092BE719AC00B414D3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AE2C12072BE553F700B414D3 /* BaseTabBarController.swift */,
+				AE2C120A2BE719CC00B414D3 /* AppsSearchController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AE2C120C2BE71CF600B414D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE2C120D2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +164,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE2C12082BE553F700B414D3 /* BaseTabBarController.swift in Sources */,
+				AE2C120E2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift in Sources */,
 				AE2C11F82BE5532800B414D3 /* ViewController.swift in Sources */,
 				AE2C11F42BE5532800B414D3 /* AppDelegate.swift in Sources */,
+				AE2C120B2BE719CC00B414D3 /* AppsSearchController.swift in Sources */,
 				AE2C11F62BE5532800B414D3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
