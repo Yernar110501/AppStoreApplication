@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchResultsCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
@@ -13,8 +14,8 @@ class SearchResultsCollectionViewCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let iv = UIImageView()
-        iv.backgroundColor = .red
         iv.layer.cornerRadius = 12
+        iv.clipsToBounds = true
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
         iv.heightAnchor.constraint(equalToConstant: 64).isActive = true
         return iv
@@ -55,7 +56,6 @@ class SearchResultsCollectionViewCell: UICollectionViewCell {
     
     private func createScreenshots() -> UIImageView {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
         return imageView
     }
     
@@ -112,6 +112,28 @@ class SearchResultsCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Lyfecycle
-    // MARK: - Helpers
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.categoryLabel.text = nil
+        self.ratingsLabel.text = nil
+        self.categoryLabel.text = nil
+        self.imageView.image = nil
+        self.screenshot1ImageView.image = nil
+        self.screenshot2ImageView.image = nil
+        self.screenshot3ImageView.image = nil
+        
+    }
+    // MARK: - Helpers
+    public func configire(with model: Result) {
+        self.nameLabel.text = model.trackName
+        self.categoryLabel.text = model.primaryGenreName
+        self.ratingsLabel.text = "\(model.averageUserRating ?? 0)"
+        self.imageView.sd_setImage(with: model.artworkUrl100)
+        self.screenshot1ImageView.sd_setImage(with: model.screenshotUrls[0])
+        self.screenshot2ImageView.sd_setImage(with: model.screenshotUrls[1])
+        self.screenshot3ImageView.sd_setImage(with: model.screenshotUrls[2])
+        
+    }
 }

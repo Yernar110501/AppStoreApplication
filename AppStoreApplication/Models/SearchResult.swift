@@ -1,7 +1,7 @@
 //
 //  SearchResults.swift
 //  AppStoreApplication
-//
+// 
 //  Created by Yernar Baiginzheyev on 09.05.2024.
 //
 
@@ -16,4 +16,6 @@ struct Result: Decodable {
     let trackName: String
     let primaryGenreName: String
     let averageUserRating: Float?
+    let artworkUrl100: URL
+    let screenshotUrls: [URL]
 }

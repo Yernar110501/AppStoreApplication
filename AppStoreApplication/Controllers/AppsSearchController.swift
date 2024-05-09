@@ -58,7 +58,8 @@ class AppsSearchController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultsCollectionViewCell.identifier, for: indexPath) as? SearchResultsCollectionViewCell {
-            cell.nameLabel.text = appResults[indexPath.item].trackName 
+            let appResult = appResults[indexPath.row]
+            cell.configire(with: appResult)
             return cell
         }
         return .init()

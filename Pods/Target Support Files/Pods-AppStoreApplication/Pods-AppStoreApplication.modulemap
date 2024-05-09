@@ -1,0 +1,6 @@
+framework module Pods_AppStoreApplication {
+  umbrella header "Pods-AppStoreApplication-umbrella.h"
+
+  export *
+  module * { export * }
+}
