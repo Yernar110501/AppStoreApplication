@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE12DD1E2BEBFAB400D5F48C /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12DD1D2BEBFAB400D5F48C /* UIView+Layout.swift */; };
 		AE2C11F42BE5532800B414D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C11F32BE5532800B414D3 /* AppDelegate.swift */; };
 		AE2C11F62BE5532800B414D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C11F52BE5532800B414D3 /* SceneDelegate.swift */; };
 		AE2C11F82BE5532800B414D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C11F72BE5532800B414D3 /* ViewController.swift */; };
@@ -16,9 +17,11 @@
 		AE2C12082BE553F700B414D3 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C12072BE553F700B414D3 /* BaseTabBarController.swift */; };
 		AE2C120B2BE719CC00B414D3 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C120A2BE719CC00B414D3 /* AppsSearchController.swift */; };
 		AE2C120E2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2C120D2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift */; };
+		AE86E3102BECEAFF002893D1 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E30F2BECEAFF002893D1 /* VerticalStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE12DD1D2BEBFAB400D5F48C /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		AE2C11F02BE5532800B414D3 /* AppStoreApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE2C11F32BE5532800B414D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE2C11F52BE5532800B414D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		AE2C12072BE553F700B414D3 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		AE2C120A2BE719CC00B414D3 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 		AE2C120D2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE86E30F2BECEAFF002893D1 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE12DD1C2BEBFAAA00D5F48C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AE12DD1D2BEBFAB400D5F48C /* UIView+Layout.swift */,
+				AE86E30F2BECEAFF002893D1 /* VerticalStackView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		AE2C11E72BE5532800B414D3 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +75,7 @@
 		AE2C11F22BE5532800B414D3 /* AppStoreApplication */ = {
 			isa = PBXGroup;
 			children = (
+				AE12DD1C2BEBFAAA00D5F48C /* Helpers */,
 				AE2C120C2BE71CF600B414D3 /* Views */,
 				AE2C12092BE719AC00B414D3 /* Controllers */,
 				AE2C11F32BE5532800B414D3 /* AppDelegate.swift */,
@@ -165,8 +179,10 @@
 			files = (
 				AE2C12082BE553F700B414D3 /* BaseTabBarController.swift in Sources */,
 				AE2C120E2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift in Sources */,
+				AE12DD1E2BEBFAB400D5F48C /* UIView+Layout.swift in Sources */,
 				AE2C11F82BE5532800B414D3 /* ViewController.swift in Sources */,
 				AE2C11F42BE5532800B414D3 /* AppDelegate.swift in Sources */,
+				AE86E3102BECEAFF002893D1 /* VerticalStackView.swift in Sources */,
 				AE2C120B2BE719CC00B414D3 /* AppsSearchController.swift in Sources */,
 				AE2C11F62BE5532800B414D3 /* SceneDelegate.swift in Sources */,
 			);

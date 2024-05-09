@@ -1,14 +1,12 @@
 //
 //  UIView+Layout.swift
-//  AppStoreJSONApis
+//  AppStoreApplication
 //
-//  Created by Brian Voong on 2/10/19.
-//  Copyright © 2019 Brian Voong. All rights reserved.
+//  Created by Yernar Baiginzheyev on 08.05.2024.
 //
 
 import UIKit
 
-// Reference Video: https://youtu.be/iqpAP7s3b-8
 extension UIView {
     
     @discardableResult
