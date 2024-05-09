@@ -10,6 +10,8 @@ import UIKit
 class AppsSearchController: UICollectionViewController {
     // MARK: - Properties
     
+    private var appResults = [Result]()
+    
     // MARK: - Init
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -27,20 +29,37 @@ class AppsSearchController: UICollectionViewController {
             SearchResultsCollectionViewCell.self,
             forCellWithReuseIdentifier: SearchResultsCollectionViewCell.identifier
         )
+        
+        fetchITunesApps()
+    }
+    
+    // MARK: - Helpers
+    
+    fileprivate func fetchITunesApps() {
+        Service.shared.fetchApps { result, error in
+            
+            if let error {
+                print("failed to fetch error with: ", error)
+                return
+            }
+            
+            self.appResults = result
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     // MARK: - CollectionViewDelegate and DataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appResults.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultsCollectionViewCell.identifier, for: indexPath) as? SearchResultsCollectionViewCell { 
-            //cell.backgroundColor = .blue
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultsCollectionViewCell.identifier, for: indexPath) as? SearchResultsCollectionViewCell {
+            cell.nameLabel.text = appResults[indexPath.item].trackName 
             return cell
-
-
         }
         return .init()
     }

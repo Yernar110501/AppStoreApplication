@@ -6,3 +6,35 @@
 //
 
 import Foundation
+
+class Service {
+    
+    static let shared = Service()
+    
+    private init () {}
+    
+    func fetchApps(completion: @escaping ([Result], Error?) -> () ) {
+        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, responce, error in
+            if let error {
+                print("Failed to fetch apps with error: ", error)
+                completion([], error)
+
+                return
+            }
+            guard let data else { return }
+            do {
+                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+                completion(searchResult.results, nil)
+            } catch {
+                print("Failed to decode json with error: ",  error)
+                completion([], error)
+
+            }
+            
+        }.resume()
+    }
+}
