@@ -131,9 +131,15 @@ class SearchResultsCollectionViewCell: UICollectionViewCell {
         self.categoryLabel.text = model.primaryGenreName
         self.ratingsLabel.text = "\(model.averageUserRating ?? 0)"
         self.imageView.sd_setImage(with: model.artworkUrl100)
-        self.screenshot1ImageView.sd_setImage(with: model.screenshotUrls[0])
-        self.screenshot2ImageView.sd_setImage(with: model.screenshotUrls[1])
-        self.screenshot3ImageView.sd_setImage(with: model.screenshotUrls[2])
+        
+        self.screenshot1ImageView.sd_setImage(with: model.screenshotUrls?[0])
+        
+        if model.screenshotUrls?.count ?? 0 > 1 {
+            self.screenshot2ImageView.sd_setImage(with: model.screenshotUrls?[1])
+        }
+        if model.screenshotUrls?.count ?? 0 > 2 {
+            self.screenshot3ImageView.sd_setImage(with: model.screenshotUrls?[2])
+        }
         
     }
 }

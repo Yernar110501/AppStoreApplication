@@ -8,10 +8,11 @@
 import UIKit
 
 class AppsSearchController: UICollectionViewController {
+    
     // MARK: - Properties
-    
     private var appResults = [Result]()
-    
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    var timer: Timer?
     // MARK: - Init
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -29,14 +30,24 @@ class AppsSearchController: UICollectionViewController {
             SearchResultsCollectionViewCell.self,
             forCellWithReuseIdentifier: SearchResultsCollectionViewCell.identifier
         )
+        setupSearchController()
         
-        fetchITunesApps()
+        fetchITunesApps(findWith: "instagram")
     }
     
     // MARK: - Helpers
     
-    fileprivate func fetchITunesApps() {
-        Service.shared.fetchApps { result, error in
+    fileprivate func setupSearchController() {
+        definesPresentationContext = true
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        //self.searchController.dimsBackgroundDuringPresentation = false
+        //        self.searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+    }
+    
+    fileprivate func fetchITunesApps(findWith text: String) {
+        Service.shared.fetchApps(searchTerm: text) { result, error in
             
             if let error {
                 print("failed to fetch error with: ", error)
@@ -71,3 +82,29 @@ extension AppsSearchController: UICollectionViewDelegateFlowLayout {
         .init(width: view.frame.width, height: 350)
     }
 }
+// MARK: - +UISearchBarDelegate
+extension AppsSearchController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+            Service.shared.fetchApps(searchTerm: searchText) { result, error in
+                
+                if let error {
+                    print("failed to fetch error with: ", error)
+                    return
+                }
+                
+                self.appResults = result
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+}
+
+
