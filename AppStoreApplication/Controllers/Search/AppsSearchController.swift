@@ -7,20 +7,13 @@
 
 import UIKit
 
-class AppsSearchController: UICollectionViewController {
+class AppsSearchController: BaseListController {
     
     // MARK: - Properties
     private var appResults = [Result]()
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     var timer: Timer?
     // MARK: - Init
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - Lyfecycle
     
     override func viewDidLoad() {
