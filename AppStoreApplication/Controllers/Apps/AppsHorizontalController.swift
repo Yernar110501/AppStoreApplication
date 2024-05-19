@@ -9,6 +9,7 @@ import UIKit
 
 class AppsHorizontalController: BaseListController {
     // MARK: - Properties
+    private var appGroup: AppGroup?
     // MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +22,25 @@ class AppsHorizontalController: BaseListController {
     }
     // MARK: - CollectionViewDelegate and CollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appGroup?.feed.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier, for: indexPath) as? AppsRowCell {
+            let app = appGroup?.feed.results[indexPath.item]
+            if let app {
+                cell.configure(with: app)
+            }
             return cell
         }
         
         return .init()
+    }
+    
+    // MARK: - Helpers
+    
+    public func configure(with model: AppGroup) {
+        self.appGroup = model
     }
 }
 // MARK: - AppsHorizontalController

@@ -6,17 +6,17 @@
 //
 
 import UIKit
-
+import SDWebImage
 
 
 class AppsRowCell: UICollectionViewCell {
     // MARK: - Properties
     static let identifier = "AppsRowCell"
     
-    let imageView = UIImageView(cornerRadius: 8 )
-    let nameLabel = UILabel(text: "App Name", font: .systemFont(ofSize: 20))
-    let companyLabel = UILabel(text: "Company Name", font: .systemFont(ofSize: 13))
-    let getButton = UIButton(title: "Get")
+    private let imageView = UIImageView(cornerRadius: 8)
+    private let nameLabel = UILabel(text: "App Name", font: .systemFont(ofSize: 20))
+    private let companyLabel = UILabel(text: "Company Name", font: .systemFont(ofSize: 13))
+    private let getButton = UIButton(title: "Get")
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,14 +26,19 @@ class AppsRowCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // MARK: - Lyfecycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.companyLabel.text = nil
+        self.nameLabel.text = nil
+        self.imageView.image = nil
+    }
     // MARK: - Helpers
     private func configureViews() {
         let stackView = UIStackView(arrangedSubviews: [imageView,
                                                       VerticalStackView(arrangedSubviews: [nameLabel, companyLabel]),
                                                       getButton])
         addSubview(stackView)
-        imageView.backgroundColor = .yellow
         imageView.constrainWidth(constant: 64)
         imageView.constrainHeight(constant: 64)
         
@@ -48,5 +53,11 @@ class AppsRowCell: UICollectionViewCell {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.fillSuperview()
+    }
+    
+    public func configure(with model: FeedResult) {
+        self.companyLabel.text = model.artistName
+        self.nameLabel.text = model.name
+        self.imageView.sd_setImage(with: model.artworkUrl100)
     }
 }
