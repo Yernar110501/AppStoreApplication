@@ -29,7 +29,6 @@ class Service {
             do {
                 let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
                 completion(searchResult.results, nil)
-                print("Parsed ok")
             } catch {
                 print("Failed to decode json with error: ",  error)
                 completion([], error)
