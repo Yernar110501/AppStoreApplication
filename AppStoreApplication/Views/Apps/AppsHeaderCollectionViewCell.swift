@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AppsHeaderCollectionViewCell: UICollectionViewCell {
     
@@ -28,7 +29,6 @@ class AppsHeaderCollectionViewCell: UICollectionViewCell {
         
         titleLabel.numberOfLines = 2
         companyLabel.textColor = .blue
-        imageView.backgroundColor = .red
         
         addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 12, left: 0, bottom: 0, right: 0))
@@ -37,6 +37,17 @@ class AppsHeaderCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // MARK: - Lyfecycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.companyLabel.text = nil
+        self.titleLabel.text = nil
+        self.imageView.image = nil
+    }
     // MARK: - Helpers
+    public func configure(with model: SocialApp) {
+        self.companyLabel.text = model.name
+        self.titleLabel.text = model.tagline
+        self.imageView.sd_setImage(with: model.imageUrl)
+    }
 }

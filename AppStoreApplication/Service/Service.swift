@@ -71,4 +71,29 @@ class Service {
             
         }.resume()
     }
+    
+    func fetchSocial(completion: @escaping([SocialApp]?, Error?) -> () ) {
+        let urlString = "https://api.letsbuildthatapp.com/appstore/social"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            if let error {
+                print("Failed to fetch social header with: ", error)
+                completion(nil, error)
+                return
+            }
+            
+            guard let data else { return }
+            
+            do  {
+                let socialApps = try JSONDecoder().decode([SocialApp].self, from: data)
+                completion(socialApps, nil)
+            } catch {
+                print("Failed to parse data with: ", error)
+                completion(nil, error)
+            }
+            
+        }.resume()
+    }
 }

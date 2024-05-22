@@ -32,6 +32,7 @@
 		AE86E3302BF9D51A002893D1 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E32F2BF9D51A002893D1 /* AppsHeaderHorizontalController.swift */; };
 		AE86E3322BF9D8F7002893D1 /* AppsHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3312BF9D8F6002893D1 /* AppsHeaderCollectionViewCell.swift */; };
 		AE86E3342BFA1148002893D1 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3332BFA1148002893D1 /* AppGroup.swift */; };
+		AE86E3362BFBABD2002893D1 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3352BFBABD2002893D1 /* Social.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		AE86E32F2BF9D51A002893D1 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		AE86E3312BF9D8F6002893D1 /* AppsHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE86E3332BFA1148002893D1 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		AE86E3352BFBABD2002893D1 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			children = (
 				AE86E3122BECF898002893D1 /* SearchResult.swift */,
 				AE86E3332BFA1148002893D1 /* AppGroup.swift */,
+				AE86E3352BFBABD2002893D1 /* Social.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				AE2C11F82BE5532800B414D3 /* ViewController.swift in Sources */,
 				AE2C11F42BE5532800B414D3 /* AppDelegate.swift in Sources */,
 				AE86E3282BF3CB8F002893D1 /* Constants.swift in Sources */,
+				AE86E3362BFBABD2002893D1 /* Social.swift in Sources */,
 				AE86E32C2BF3D130002893D1 /* Extensions.swift in Sources */,
 				AE86E31E2BF26A59002893D1 /* BaseListController.swift in Sources */,
 				AE86E3242BF26E32002893D1 /* AppsGroupCell.swift in Sources */,

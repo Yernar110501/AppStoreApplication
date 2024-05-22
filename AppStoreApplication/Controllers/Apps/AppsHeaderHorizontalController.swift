@@ -10,6 +10,8 @@ import UIKit
 class AppsHeaderHorizontalController: BaseListController {
     // MARK: - Properties
     
+    private var socialApps: [SocialApp] = []
+    
     // MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,21 +24,30 @@ class AppsHeaderHorizontalController: BaseListController {
         }
         
     }
-    
+    // MARK: - Delegate and Datasourse
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return socialApps.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsHeaderCollectionViewCell.identifier, for: indexPath) as? AppsHeaderCollectionViewCell {
+            
+            let socialApp = socialApps[indexPath.item]
+            cell.configure(with: socialApp)
+            
+            
             return cell
         }
-
+        
         return .init()
+    }
+    // MARK: - Helpers
+    public func configure(with model: [SocialApp]) {
+        self.socialApps = model
     }
     
 }
-
+// MARK: - AppsHeaderHorizontalController+UICollectionViewDelegateFlowLayout
 extension AppsHeaderHorizontalController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width - 48, height: view.frame.height)
