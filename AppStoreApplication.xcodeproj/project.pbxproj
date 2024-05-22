@@ -33,6 +33,7 @@
 		AE86E3322BF9D8F7002893D1 /* AppsHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3312BF9D8F6002893D1 /* AppsHeaderCollectionViewCell.swift */; };
 		AE86E3342BFA1148002893D1 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3332BFA1148002893D1 /* AppGroup.swift */; };
 		AE86E3362BFBABD2002893D1 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3352BFBABD2002893D1 /* Social.swift */; };
+		AE86E3382BFE626B002893D1 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3372BFE626B002893D1 /* HorizontalSnappingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		AE86E3312BF9D8F6002893D1 /* AppsHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE86E3332BFA1148002893D1 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		AE86E3352BFBABD2002893D1 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		AE86E3372BFE626B002893D1 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				AE2C12072BE553F700B414D3 /* BaseTabBarController.swift */,
 				AE86E31D2BF26A59002893D1 /* BaseListController.swift */,
+				AE86E3372BFE626B002893D1 /* HorizontalSnappingController.swift */,
 				AE86E31C2BF26A29002893D1 /* Apps */,
 				AE86E31B2BF26A21002893D1 /* Search */,
 			);
@@ -355,6 +358,7 @@
 				AE86E3132BECF898002893D1 /* SearchResult.swift in Sources */,
 				AE2C11F62BE5532800B414D3 /* SceneDelegate.swift in Sources */,
 				AE86E32E2BF8FB40002893D1 /* AppsPageHeader.swift in Sources */,
+				AE86E3382BFE626B002893D1 /* HorizontalSnappingController.swift in Sources */,
 				AE86E3202BF26A90002893D1 /* AppsPageController.swift in Sources */,
 				AE86E3262BF27169002893D1 /* AppsHorizontalController.swift in Sources */,
 			);

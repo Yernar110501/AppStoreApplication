@@ -11,4 +11,5 @@ struct Constants {
     static let topBottomPadding: CGFloat = 12
     static let lineSpacing: CGFloat = 10
     static let leftRightPadding: CGFloat = 16
+    static let widthOfFirstItem: CGFloat = 48
 }

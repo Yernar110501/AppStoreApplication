@@ -47,7 +47,7 @@ class AppsSearchController: BaseListController {
                 return
             }
             
-            self.appResults = result
+            self.appResults = result?.results ?? []
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -90,7 +90,7 @@ extension AppsSearchController: UISearchBarDelegate {
                     return
                 }
                 
-                self.appResults = result
+                self.appResults = result?.results ?? []
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }

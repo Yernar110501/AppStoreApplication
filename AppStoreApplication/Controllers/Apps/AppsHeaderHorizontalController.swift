@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppsHeaderHorizontalController: BaseListController {
+class AppsHeaderHorizontalController: HorizontalSnappingController {
     // MARK: - Properties
     
     private var socialApps: [SocialApp] = []
@@ -18,10 +18,10 @@ class AppsHeaderHorizontalController: BaseListController {
         collectionView.backgroundColor = .systemBackground
         collectionView.register(AppsHeaderCollectionViewCell.self,
                                 forCellWithReuseIdentifier: AppsHeaderCollectionViewCell.identifier)
-        
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+        collectionView.contentInset = .init(top: 0,
+                                            left: Constants.leftRightPadding,
+                                            bottom: 0,
+                                            right: Constants.leftRightPadding)
         
     }
     // MARK: - Delegate and Datasourse
@@ -50,10 +50,6 @@ class AppsHeaderHorizontalController: BaseListController {
 // MARK: - AppsHeaderHorizontalController+UICollectionViewDelegateFlowLayout
 extension AppsHeaderHorizontalController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 48, height: view.frame.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        .init(top: 0, left: 16, bottom: 0, right: 0)
+        return .init(width: view.frame.width - Constants.widthOfFirstItem, height: view.frame.height)
     }
 }
