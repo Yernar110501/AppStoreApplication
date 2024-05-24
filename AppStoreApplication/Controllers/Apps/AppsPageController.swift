@@ -7,10 +7,12 @@
 
 import UIKit
 
+
 class AppsPageController: BaseListController {
     // MARK: - Properties
     var groups = [AppGroup]()
     var socialApps = [SocialApp]()
+    var appName: String?
     
     private let activityIndicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
@@ -33,6 +35,7 @@ class AppsPageController: BaseListController {
         collectionView.register(AppsPageHeader.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: AppsPageHeader.identifier)
+        
         fetchData()
     }
     // MARK: - Helpers
@@ -91,7 +94,7 @@ class AppsPageController: BaseListController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsGroupCell.identifier, for: indexPath) as? AppsGroupCell {
-            
+            cell.horizontalController.delegate = self
             let group = groups[indexPath.item]
             cell.configure(with: group)
             
@@ -123,6 +126,14 @@ extension AppsPageController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         .init(top: 16, left: 0, bottom: 0, right: 0)
+    }
+}
+// MARK: - AppsPageController+AppsPageControllerDelegate
+extension AppsPageController: AppsHorizontalControllerDelegate {
+    func didApplicationTapped(feedResult: FeedResult) {
+        let vc = AppDetailsController()
+        vc.navigationItem.title = feedResult.id
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol AppsHorizontalControllerDelegate: AnyObject {
+    func didApplicationTapped(feedResult: FeedResult)
+}
+
+
 class AppsHorizontalController: HorizontalSnappingController  {
     // MARK: - Properties
     private var appGroup: AppGroup?
+    weak var delegate: AppsHorizontalControllerDelegate?
     // MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +43,12 @@ class AppsHorizontalController: HorizontalSnappingController  {
         return .init()
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let app = appGroup?.feed.results[indexPath.item] {
+            delegate?.didApplicationTapped(feedResult: app)
+        }
+    }
+    
     // MARK: - Helpers
     
     public func configure(with model: AppGroup) {
@@ -59,7 +71,4 @@ extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.lineSpacing
     }
-    
 }
-
-

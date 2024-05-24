@@ -34,6 +34,7 @@
 		AE86E3342BFA1148002893D1 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3332BFA1148002893D1 /* AppGroup.swift */; };
 		AE86E3362BFBABD2002893D1 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3352BFBABD2002893D1 /* Social.swift */; };
 		AE86E3382BFE626B002893D1 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3372BFE626B002893D1 /* HorizontalSnappingController.swift */; };
+		AED694862C00EDB90000F2F0 /* AppDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED694852C00EDB90000F2F0 /* AppDetailsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		AE86E3332BFA1148002893D1 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		AE86E3352BFBABD2002893D1 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		AE86E3372BFE626B002893D1 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
+		AED694852C00EDB90000F2F0 /* AppDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				AE86E3372BFE626B002893D1 /* HorizontalSnappingController.swift */,
 				AE86E31C2BF26A29002893D1 /* Apps */,
 				AE86E31B2BF26A21002893D1 /* Search */,
+				AED694852C00EDB90000F2F0 /* AppDetailsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED694862C00EDB90000F2F0 /* AppDetailsController.swift in Sources */,
 				AE2C12082BE553F700B414D3 /* BaseTabBarController.swift in Sources */,
 				AE2C120E2BE71D3D00B414D3 /* SearchResultsCollectionViewCell.swift in Sources */,
 				AE12DD1E2BEBFAB400D5F48C /* UIView+Layout.swift in Sources */,
