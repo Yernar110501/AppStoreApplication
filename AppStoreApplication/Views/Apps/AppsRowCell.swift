@@ -59,5 +59,6 @@ class AppsRowCell: UICollectionViewCell {
         self.companyLabel.text = model.artistName
         self.nameLabel.text = model.name
         self.imageView.sd_setImage(with: model.artworkUrl100)
+        self.getButton.setTitle(model.formattedPrice ?? "Get", for: .normal)
     }
 }

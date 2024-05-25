@@ -132,7 +132,9 @@ extension AppsPageController: UICollectionViewDelegateFlowLayout {
 extension AppsPageController: AppsHorizontalControllerDelegate {
     func didApplicationTapped(feedResult: FeedResult) {
         let vc = AppDetailsController()
-        vc.navigationItem.title = feedResult.id
+        vc.navigationItem.title = feedResult.name
+        vc.appId = feedResult.id
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }
