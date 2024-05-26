@@ -33,6 +33,16 @@ class AppDetailCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Lyfecycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.appIconImageView.image = nil
+        self.nameLabel.text = nil
+        self.releaseNotesLabel.text = nil
+        self.priceButton.titleLabel?.text = nil
+    }
+    
     // MARK: - Helpers
     private func configureConstraints() {
         appIconImageView.constrainWidth(constant: 140)
@@ -48,7 +58,7 @@ class AppDetailCell: UICollectionViewCell {
         priceButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         priceButton.tintColor = .white
         
-        let stackView = VerticalStackView(arrangedSubviews: [
+        let appInfoStackView = VerticalStackView(arrangedSubviews: [
             UIStackView(arrangedSubviews: [
                 appIconImageView,
                 VerticalStackView(arrangedSubviews: [
@@ -63,9 +73,9 @@ class AppDetailCell: UICollectionViewCell {
             releaseNotesLabel
         ], spacing: 16)
         
-        addSubview(stackView)
+        addSubview(appInfoStackView)
         
-        stackView.fillSuperview(padding: .init(top: 20,
+        appInfoStackView.fillSuperview(padding: .init(top: 20,
                                                left: 20,
                                                bottom: 20,
                                                right: 20))

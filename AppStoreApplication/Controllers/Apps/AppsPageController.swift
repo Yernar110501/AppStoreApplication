@@ -133,7 +133,7 @@ extension AppsPageController: AppsHorizontalControllerDelegate {
     func didApplicationTapped(feedResult: FeedResult) {
         let vc = AppDetailsController()
         vc.navigationItem.title = feedResult.name
-        vc.appId = feedResult.id
+        vc.configure(with: feedResult.id)
         
         navigationController?.pushViewController(vc, animated: true)
     }
