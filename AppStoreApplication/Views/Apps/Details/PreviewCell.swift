@@ -16,7 +16,7 @@ class PreviewCell: UICollectionViewCell {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews([horizontalController.view, previewLabel])
+        addSubviews(horizontalController.view, previewLabel)
         previewLabel.anchor(top: topAnchor,
                             leading: leadingAnchor,
                             bottom: nil,

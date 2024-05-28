@@ -15,6 +15,7 @@ struct SearchResult: Decodable {
 }
 /// Model which represents result of searching
 struct Result: Decodable {
+    let trackId: Int
     let trackName: String?
     let primaryGenreName: String
     let averageUserRating: Float?

@@ -68,6 +68,13 @@ class AppsSearchController: BaseListController {
         }
         return .init()
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appId = appResults[indexPath.item].trackId
+        let vc = AppDetailsController()
+        vc.configure(with: String(appId))
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 // MARK: - +UICollectionViewDelegateFlowLayout
 extension AppsSearchController: UICollectionViewDelegateFlowLayout {
