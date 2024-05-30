@@ -25,6 +25,8 @@
 		AE6F334F2C061F8100FE76AE /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6F334E2C061F8100FE76AE /* ReviewsController.swift */; };
 		AE6F33512C06213000FE76AE /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6F33502C06213000FE76AE /* ReviewCell.swift */; };
 		AE6F33532C06648000FE76AE /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6F33522C06648000FE76AE /* Reviews.swift */; };
+		AE6F33572C067E4800FE76AE /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6F33562C067E4800FE76AE /* TodayController.swift */; };
+		AE6F33592C06805000FE76AE /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6F33582C06804F00FE76AE /* TodayCell.swift */; };
 		AE86E3102BECEAFF002893D1 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E30F2BECEAFF002893D1 /* VerticalStackView.swift */; };
 		AE86E3132BECF898002893D1 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3122BECF898002893D1 /* SearchResult.swift */; };
 		AE86E3162BED1A69002893D1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE86E3152BED1A69002893D1 /* Service.swift */; };
@@ -68,6 +70,8 @@
 		AE6F334E2C061F8100FE76AE /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
 		AE6F33502C06213000FE76AE /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		AE6F33522C06648000FE76AE /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		AE6F33562C067E4800FE76AE /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
+		AE6F33582C06804F00FE76AE /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		AE86E30F2BECEAFF002893D1 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		AE86E3122BECF898002893D1 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		AE86E3152BED1A69002893D1 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				AE86E3372BFE626B002893D1 /* HorizontalSnappingController.swift */,
 				AE86E31C2BF26A29002893D1 /* Apps */,
 				AE86E31B2BF26A21002893D1 /* Search */,
+				AE6F33552C067DB600FE76AE /* Today */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,10 +176,27 @@
 		AE2C120C2BE71CF600B414D3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AE6F33542C067DA200FE76AE /* Today */,
 				AE86E3222BF26E1F002893D1 /* Apps */,
 				AE86E3212BF26E17002893D1 /* Search */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AE6F33542C067DA200FE76AE /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				AE6F33582C06804F00FE76AE /* TodayCell.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		AE6F33552C067DB600FE76AE /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				AE6F33562C067E4800FE76AE /* TodayController.swift */,
+			);
+			path = Today;
 			sourceTree = "<group>";
 		};
 		AE86E3112BECF88A002893D1 /* Models */ = {
@@ -404,9 +426,11 @@
 				AE86E3102BECEAFF002893D1 /* VerticalStackView.swift in Sources */,
 				AE2C120B2BE719CC00B414D3 /* AppsSearchController.swift in Sources */,
 				AE86E3162BED1A69002893D1 /* Service.swift in Sources */,
+				AE6F33572C067E4800FE76AE /* TodayController.swift in Sources */,
 				AE6F33512C06213000FE76AE /* ReviewCell.swift in Sources */,
 				AE86E3132BECF898002893D1 /* SearchResult.swift in Sources */,
 				AE2C11F62BE5532800B414D3 /* SceneDelegate.swift in Sources */,
+				AE6F33592C06805000FE76AE /* TodayCell.swift in Sources */,
 				AED6948A2C01066C0000F2F0 /* AppDetailCell.swift in Sources */,
 				AE86E32E2BF8FB40002893D1 /* AppsPageHeader.swift in Sources */,
 				AE6F33472C039DE500FE76AE /* PreviewCell.swift in Sources */,
