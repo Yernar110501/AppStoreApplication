@@ -7,3 +7,7 @@ Search page
 Apps page
 
 ![image](https://github.com/Yernar110501/AppStoreApplication/assets/61582212/4c574dcf-2fe7-4edf-9e2c-03d61420d749)
+
+App detail page
+
+![image](https://github.com/Yernar110501/AppStoreApplication/assets/61582212/212862ec-0ac7-4191-934f-81cdbbf23d91)
