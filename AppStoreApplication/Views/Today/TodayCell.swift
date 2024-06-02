@@ -15,6 +15,7 @@ class TodayCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
+        translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 16
         addSubview(imageView)
         imageView.image = UIImage(named: "garden")

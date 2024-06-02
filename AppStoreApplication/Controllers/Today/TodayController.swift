@@ -10,6 +10,8 @@ import UIKit
 class TodayController: BaseListController {
     // MARK: - Properties
     var startingFrame: CGRect?
+    var appFullScreenController: AppFullScreenController!
+    var topConstraint, leadingConstraint, widthConstraint, heightConstraint: NSLayoutConstraint?
     // MARK: - Lyfecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,23 +35,41 @@ class TodayController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print("Cliecked item at index \(indexPath.item)")
-        let redView = UIView()
+        let appFullScreenController = AppFullScreenController()
+        let redView = appFullScreenController.view!
         redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView)))
-        redView.backgroundColor = .red
         view.addSubview(redView)
+        addChild(appFullScreenController)
+        self.appFullScreenController = appFullScreenController
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         print(cell.frame)
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
-        redView.frame = startingFrame
-        redView.layer.cornerRadius = 16
+//        redView.frame = startingFrame
         self.startingFrame = startingFrame
+        redView.translatesAutoresizingMaskIntoConstraints = false
+        topConstraint = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+        leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        widthConstraint = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+        heightConstraint = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+        
+        [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach { $0?.isActive = true }
+        self.view.layoutIfNeeded()
+        redView.layer.cornerRadius = 16
+        
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            redView.frame = self.view.frame
-        }, completion: nil )
+//            redView.frame = self.view.frame
+            self.topConstraint?.constant = 0
+            self.leadingConstraint?.constant = 0
+            self.widthConstraint?.constant = self.view.frame.width
+            self.heightConstraint?.constant = self.view.frame.height
+            self.view.layoutIfNeeded()
+        }) {_ in
+            self.tabBarController?.tabBar.isHidden = true
+            
+        }
 
     }
     
@@ -59,9 +79,21 @@ class TodayController: BaseListController {
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            gesture.view?.frame = self.startingFrame ?? .zero
-        }) {_ in 
+//            gesture.view?.frame = self.startingFrame ?? .zero
+            self.appFullScreenController.tableView.contentOffset = .zero
+            guard let stargingFrame = self.startingFrame else { return }
+            self.topConstraint?.constant = stargingFrame.origin.y
+            self.leadingConstraint?.constant = stargingFrame.origin.x
+            self.widthConstraint?.constant = stargingFrame.width
+            self.heightConstraint?.constant = stargingFrame.height
+            self.view.layoutIfNeeded()
+            
+            self.tabBarController?.tabBar.isHidden = false
+
+
+        }) {_ in
             gesture.view?.removeFromSuperview()
+            self.appFullScreenController.removeFromParent()
         }
     }
 }
